@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Steve Willert Photos - Professional photography capturing the beauty of nature and adventure.">
+    <title>Steve Willert Photos</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4d941bf0-39a8-437d-954f-4d15c8d350b6"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Mouse Glow Effect */
+        .glow-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #d4af37;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .nav-links a.active {
+            color: #d4af37;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Carousel Section */
+        .hero-carousel {
+            margin-top: 70px;
+            width: 100%;
+            height: calc(100vh - 70px);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .carousel-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1a1a1a;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Carousel Controls */
+        .carousel-nav {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #d4af37;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            max-width: 1400px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-header h2 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-header a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .gallery-header a:hover {
+            color: #d4af37;
+        }
+
+        /* Instagram-style Grid */
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .grid-item {
+            aspect-ratio: 1;
+            background: #1a1a1a;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 300;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f0f;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 3rem 2rem 2rem;
+            margin-top: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #d4af37;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: #d4af37;
+        }
+
+        .footer-contact p {
+            color: #b0b0b0;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact a {
+            color: #d4af37;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 15, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero-carousel {
+                height: calc(100vh - 70px);
+            }
+
+            .instagram-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gallery-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .gallery-section {
+                padding: 0 1rem;
+            }
+
+            footer {
+                padding: 2rem 1rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mouse Glow Effect -->
+    <div class="glow-effect"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-text">SW PHOTOS</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="Aurora-Borealis.html">Aurora Borealis</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section class="hero-carousel">
+        <div class="carousel-container">
+            <!-- Carousel Slides -->
+            <div class="carousel-slide active">
+                <img src="images/Le_Dun_enhanced_Normal.jpg" alt="Aurora Borealis over Quebec">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/Le_Dun_Stars_Light.jpg" alt="Starlit Aurora in Quebec">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/Le_Dun_Stars_Red_Light.jpg" alt="Red Aurora Dance in Quebec">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/Northern_Lights_Swirl_Middle.jpg" alt="Northern Lights Swirl">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/Northern_Lights_Swirl_Right.jpg" alt="Celestial Swirl">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/Cotton_Candy_Skies_Normal.jpg" alt="Cotton Candy Skies Aurora">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/Star_Burst.jpg" alt="Star Burst Aurora">
+            </div>
+            
+            <div class="carousel-nav">
+                <span class="carousel-dot active" data-slide="0"></span>
+                <span class="carousel-dot" data-slide="1"></span>
+                <span class="carousel-dot" data-slide="2"></span>
+                <span class="carousel-dot" data-slide="3"></span>
+                <span class="carousel-dot" data-slide="4"></span>
+                <span class="carousel-dot" data-slide="5"></span>
+                <span class="carousel-dot" data-slide="6"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="gallery-header">
+            <h2>GALLERY</h2>
+            <a href="gallery.html">View All →</a>
+        </div>
+        
+        <div class="instagram-grid">
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-placeholder">Coming Soon</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Aurora-Borealis.html">Aurora Borealis</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <div class="footer-contact">
+                    <p><strong>Steve Willert</strong></p>
+                    <p><a href="mailto:steve.willert39@gmail.com">steve.willert39@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Steve Willert Photos. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mouse Glow Effect
+        const glowEffect = document.querySelector('.glow-effect');
+        
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            glowEffect.style.background = `radial-gradient(circle 600px at ${x}px ${y}px, rgba(212, 175, 55, 0.08) 0%, transparent 70%)`;
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Carousel Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + totalSlides) % totalSlides;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            });
+        });
+
+        // Auto-advance carousel every 5 seconds
+        let autoSlideInterval = setInterval(nextSlide, 5000);
+
+        // Pause auto-advance on hover
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        });
+    </script>
+</body>
+</html>
