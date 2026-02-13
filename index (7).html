@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Steve Willert Photos - Professional photography capturing the beauty of nature and adventure.">
+    <title>Steve Willert Photos</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4d941bf0-39a8-437d-954f-4d15c8d350b6"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background-color: #0f0f0f;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .logo {
+            max-width: 250px;
+            height: auto;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .intro {
+            margin-bottom: 3rem;
+        }
+
+        .intro h1 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .intro p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            color: #d4af37;
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 3rem;
+        }
+
+        /* Featured Collection */
+        .featured {
+            background-color: #0f0f0f;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .featured-title {
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .featured-subtitle {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        .featured-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .featured-image-container {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-image:hover {
+            transform: scale(1.05);
+        }
+
+        .featured-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .featured-text h3 {
+            color: #e0e0e0;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .featured-text p {
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #d4af37;
+            color: #0f0f0f;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #f0c952;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f0f0f;
+            border-top: 1px solid #2a2a2a;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .intro h1 {
+                font-size: 2rem;
+            }
+
+            .intro p {
+                font-size: 1rem;
+            }
+
+            .logo {
+                max-width: 180px;
+            }
+
+            .featured {
+                padding: 1.5rem;
+            }
+
+            .featured-content {
+                flex-direction: column;
+            }
+
+            .featured-text {
+                text-align: center;
+            }
+
+            .featured-text h3 {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="images/Sw_photos_logo___text.jpg" alt="Steve Willert Photos Logo" class="logo">
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Introduction -->
+            <div class="intro">
+                <h1>Welcome</h1>
+                <p>
+                    Capturing the extraordinary beauty of nature through the lens. 
+                    From the dancing lights of the Aurora Borealis to the raw beauty of the wilderness.
+                </p>
+                <div class="coming-soon">FULL SITE COMING SOON</div>
+            </div>
+
+            <!-- Featured Collection -->
+            <div class="featured">
+                <h2 class="featured-title">FEATURED COLLECTION</h2>
+                <p class="featured-subtitle">Now Available</p>
+                
+                <div class="featured-content">
+                    <div class="featured-image-container">
+                        <img 
+                            src="images/Le_Dun_enhanced_Normal.jpg" 
+                            alt="Aurora Borealis over Quebec, Canada"
+                            class="featured-image"
+                        >
+                    </div>
+                    <div class="featured-text">
+                        <h3>Aurora Borealis Collection</h3>
+                        <p>
+                            Experience the magic of Quebec's Northern Lights. 
+                            High-quality metal prints available for your home or office.
+                        </p>
+                        <a href="Aurora-Borealis.html" class="cta-button">VIEW COLLECTION</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Steve Willert Photos. All rights reserved.</p>
+    </footer>
+</body>
+</html>
