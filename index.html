@@ -490,79 +490,46 @@
             margin-top: 0.2rem;
         }
 
-        /* ─── Coming Soon Category Cards ─── */
-        .coming-soon-section {
-            margin-top: 2rem;
-        }
-
-        .coming-soon-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-        }
-
-        .cs-card {
-            aspect-ratio: 4/3;
-            border-radius: 2px;
+        /* ─── Gallery Filter Tabs ─── */
+        .filter-tabs {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            transition: border-color 0.3s ease, transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
-        .cs-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .filter-tabs::-webkit-scrollbar {
+            display: none;
         }
 
-        .cs-card:hover {
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-3px);
+        .filter-btn {
+            flex-shrink: 0;
+            padding: 0.5rem 1.25rem;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: #666;
+            cursor: pointer;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+            font-family: inherit;
+            white-space: nowrap;
         }
 
-        .cs-sunrise {
-            background: linear-gradient(160deg, #0f0b06 0%, #1e1008 50%, #0f0b06 100%);
-        }
-
-        .cs-sunset {
-            background: linear-gradient(160deg, #0f0806 0%, #1a0a08 50%, #0f0a10 100%);
-        }
-
-        .cs-water {
-            background: linear-gradient(160deg, #060a10 0%, #081220 50%, #060a10 100%);
-        }
-
-        .cs-astro {
-            background: linear-gradient(160deg, #06060f 0%, #0a0a1a 50%, #06060f 100%);
-        }
-
-        .cs-icon {
-            font-size: 1.5rem;
-            opacity: 0.5;
-        }
-
-        .cs-card h3 {
+        .filter-btn:hover {
+            border-color: rgba(212, 175, 55, 0.45);
             color: #d4af37;
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
         }
 
-        .cs-card p {
-            color: #444;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .filter-btn.active {
+            background: #d4af37;
+            color: #0a0a0a;
+            border-color: #d4af37;
         }
 
         /* ─── About Section ─── */
@@ -970,31 +937,34 @@
         <div class="carousel-container" id="carousel">
 
             <div class="carousel-slide active">
-                <img src="images/Le_Dun_enhanced_Normal.jpg" alt="Aurora Borealis over Quebec, Canada" loading="eager">
+                <img src="images/Le%20Dun/Le_Dun_enhanced_Normal.jpg" alt="Aurora Borealis, Le Dun, Quebec" loading="eager">
             </div>
             <div class="carousel-slide">
-                <img src="images/Cotton_Candy_Skies_Normal.jpg" alt="Cotton Candy Skies Aurora" loading="lazy">
+                <img src="images/Mountains/Bow_Lake.jpg" alt="Bow Lake, Alberta" loading="lazy">
             </div>
             <div class="carousel-slide">
-                <img src="images/Northern_Lights_Swirl_Middle.jpg" alt="Northern Lights Swirl" loading="lazy">
+                <img src="images/Water/Peyto.jpg" alt="Peyto Lake, Alberta" loading="lazy">
             </div>
             <div class="carousel-slide">
-                <img src="images/Le_Dun_Stars_Red_Light.jpg" alt="Red Aurora Dance in Quebec" loading="lazy">
+                <img src="images/Sunset/Alpine_Scenic_Backway.jpg" alt="Alpine Scenic Backway" loading="lazy">
             </div>
             <div class="carousel-slide">
-                <img src="images/Northern_Lights_Swirl_Right.jpg" alt="Celestial Northern Lights Swirl" loading="lazy">
+                <img src="images/Le%20Dun/Cotton_Candy_Skies_Normal.jpg" alt="Cotton Candy Skies Aurora" loading="lazy">
             </div>
             <div class="carousel-slide">
-                <img src="images/Star_Burst.jpg" alt="Star Burst Aurora" loading="lazy">
+                <img src="images/Rock%20Formations/Monument_Valley.jpg" alt="Monument Valley" loading="lazy">
             </div>
             <div class="carousel-slide">
-                <img src="images/Le_Dun_Stars_Light.jpg" alt="Starlit Aurora in Quebec" loading="lazy">
+                <img src="images/Sunrise/factory_butte_sunrise.jpg" alt="Factory Butte Sunrise, Utah" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/Water/cape_flattery.jpg" alt="Cape Flattery, Washington" loading="lazy">
             </div>
 
             <!-- Hero Text -->
             <div class="hero-overlay">
                 <p class="hero-overlay-eyebrow">Steve Willert Photography</p>
-                <h1 class="hero-overlay-title">Capturing Nature's Most<br>Extraordinary Moments</h1>
+                <h1 class="hero-overlay-title">Travel & Landscape Photography</h1>
                 <a href="#gallery" class="hero-scroll-btn">Explore the Gallery</a>
             </div>
 
@@ -1007,6 +977,7 @@
                 <button class="carousel-dot" data-slide="4" aria-label="Slide 5"></button>
                 <button class="carousel-dot" data-slide="5" aria-label="Slide 6"></button>
                 <button class="carousel-dot" data-slide="6" aria-label="Slide 7"></button>
+                <button class="carousel-dot" data-slide="7" aria-label="Slide 8"></button>
             </div>
         </div>
     </section>
@@ -1015,7 +986,7 @@
     <section class="featured-section">
         <div class="featured-container fade-up">
             <div class="featured-image-wrap">
-                <img src="images/Le_Dun_enhanced_Normal.jpg" alt="Aurora Borealis — Le Dun, Quebec — Featured Fine Art Print">
+                <img src="images/Le%20Dun/Le_Dun_enhanced_Normal.jpg" alt="Aurora Borealis — Le Dun, Quebec — Featured Fine Art Print">
                 <div class="featured-badge">Featured Print</div>
             </div>
             <div class="featured-info">
@@ -1035,95 +1006,262 @@
     <section class="gallery-section" id="gallery">
         <div class="gallery-header fade-up">
             <h2>Gallery</h2>
-            <p>Fine art photography available as limited edition prints</p>
+            <p>Travel and landscape photography</p>
         </div>
 
-        <!-- Aurora Collection -->
-        <div class="collection-header fade-up">
-            <h3>Aurora Borealis Collection</h3>
-            <a href="Aurora-Borealis.html" class="collection-view-all">View Full Collection &rarr;</a>
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="aurora">Aurora</button>
+            <button class="filter-btn" data-filter="mountains">Mountains</button>
+            <button class="filter-btn" data-filter="water">Water</button>
+            <button class="filter-btn" data-filter="sunrise">Sunrise</button>
+            <button class="filter-btn" data-filter="sunset">Sunset</button>
+            <button class="filter-btn" data-filter="astro">Astro</button>
+            <button class="filter-btn" data-filter="cityscape">Cityscape</button>
+            <button class="filter-btn" data-filter="wildlife">Wildlife</button>
+            <button class="filter-btn" data-filter="forest">Forest</button>
+            <button class="filter-btn" data-filter="people">People</button>
+            <button class="filter-btn" data-filter="rock-formations">Rock Formations</button>
         </div>
 
-        <div class="photo-grid" id="aurora-grid">
-            <div class="grid-item" data-src="images/Le_Dun_enhanced_Normal.jpg" data-title="Aurora Borealis · Le Dun, Quebec">
-                <img src="images/Le_Dun_enhanced_Normal.jpg" alt="Aurora Borealis, Le Dun, Quebec" loading="lazy">
-                <div class="grid-overlay">
-                    <span class="grid-overlay-title">Aurora Borealis</span>
-                    <span class="grid-overlay-loc">Le Dun, Quebec</span>
-                </div>
-            </div>
-            <div class="grid-item" data-src="images/Le_Dun_Stars_Light.jpg" data-title="Starlit Aurora · Quebec">
-                <img src="images/Le_Dun_Stars_Light.jpg" alt="Starlit Aurora, Quebec" loading="lazy">
-                <div class="grid-overlay">
-                    <span class="grid-overlay-title">Starlit Aurora</span>
-                    <span class="grid-overlay-loc">Quebec, Canada</span>
-                </div>
-            </div>
-            <div class="grid-item" data-src="images/Le_Dun_Stars_Red_Light.jpg" data-title="Red Aurora Dance · Quebec">
-                <img src="images/Le_Dun_Stars_Red_Light.jpg" alt="Red Aurora Dance, Quebec" loading="lazy">
-                <div class="grid-overlay">
-                    <span class="grid-overlay-title">Red Aurora Dance</span>
-                    <span class="grid-overlay-loc">Quebec, Canada</span>
-                </div>
-            </div>
-            <div class="grid-item" data-src="images/Northern_Lights_Swirl_Middle.jpg" data-title="Northern Swirl · Quebec">
-                <img src="images/Northern_Lights_Swirl_Middle.jpg" alt="Northern Lights Swirl, Quebec" loading="lazy">
-                <div class="grid-overlay">
-                    <span class="grid-overlay-title">Northern Swirl</span>
-                    <span class="grid-overlay-loc">Quebec, Canada</span>
-                </div>
-            </div>
-            <div class="grid-item" data-src="images/Northern_Lights_Swirl_Right.jpg" data-title="Celestial Swirl · Quebec">
-                <img src="images/Northern_Lights_Swirl_Right.jpg" alt="Celestial Swirl, Quebec" loading="lazy">
-                <div class="grid-overlay">
-                    <span class="grid-overlay-title">Celestial Swirl</span>
-                    <span class="grid-overlay-loc">Quebec, Canada</span>
-                </div>
-            </div>
-            <div class="grid-item" data-src="images/Cotton_Candy_Skies_Normal.jpg" data-title="Cotton Candy Skies · Quebec">
-                <img src="images/Cotton_Candy_Skies_Normal.jpg" alt="Cotton Candy Skies Aurora, Quebec" loading="lazy">
-                <div class="grid-overlay">
-                    <span class="grid-overlay-title">Cotton Candy Skies</span>
-                    <span class="grid-overlay-loc">Quebec, Canada</span>
-                </div>
-            </div>
-            <div class="grid-item" data-src="images/Star_Burst.jpg" data-title="Star Burst · Quebec">
-                <img src="images/Star_Burst.jpg" alt="Star Burst Aurora, Quebec" loading="lazy">
-                <div class="grid-overlay">
-                    <span class="grid-overlay-title">Star Burst</span>
-                    <span class="grid-overlay-loc">Quebec, Canada</span>
-                </div>
-            </div>
-        </div>
+        <!-- Photo Grid -->
+        <div class="photo-grid" id="gallery-grid">
 
-        <!-- Coming Soon Collections -->
-        <div class="coming-soon-section fade-up">
-            <div class="collection-header">
-                <h3>More Collections</h3>
-                <span style="color: #444; font-size: 0.8rem; letter-spacing: 1px;">Coming Soon</span>
+            <!-- Aurora -->
+            <div class="grid-item" data-category="aurora" data-src="images/Le%20Dun/Le_Dun_enhanced_Normal.jpg" data-title="Aurora Borealis · Le Dun, Quebec">
+                <img src="images/Le%20Dun/Le_Dun_enhanced_Normal.jpg" alt="Aurora Borealis, Le Dun, Quebec" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Aurora Borealis</span><span class="grid-overlay-loc">Le Dun, Quebec</span></div>
             </div>
-            <div class="coming-soon-grid">
-                <div class="cs-card cs-sunrise">
-                    <div class="cs-icon">&#9728;</div>
-                    <h3>Sunrise</h3>
-                    <p>Coming Soon</p>
-                </div>
-                <div class="cs-card cs-sunset">
-                    <div class="cs-icon">&#9790;</div>
-                    <h3>Sunset</h3>
-                    <p>Coming Soon</p>
-                </div>
-                <div class="cs-card cs-water">
-                    <div class="cs-icon">&#126;</div>
-                    <h3>Water</h3>
-                    <p>Coming Soon</p>
-                </div>
-                <div class="cs-card cs-astro">
-                    <div class="cs-icon">&#10022;</div>
-                    <h3>Astro</h3>
-                    <p>Coming Soon</p>
-                </div>
+
+            <!-- Mountains -->
+            <div class="grid-item" data-category="mountains" data-src="images/Mountains/Bow_Lake.jpg" data-title="Bow Lake · Alberta, Canada">
+                <img src="images/Mountains/Bow_Lake.jpg" alt="Bow Lake, Alberta" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Bow Lake</span><span class="grid-overlay-loc">Alberta, Canada</span></div>
             </div>
+
+            <!-- Water -->
+            <div class="grid-item" data-category="water" data-src="images/Water/Peyto.jpg" data-title="Peyto Lake · Alberta, Canada">
+                <img src="images/Water/Peyto.jpg" alt="Peyto Lake, Alberta" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Peyto Lake</span><span class="grid-overlay-loc">Alberta, Canada</span></div>
+            </div>
+
+            <!-- Sunrise -->
+            <div class="grid-item" data-category="sunrise" data-src="images/Sunrise/factory_butte_sunrise.jpg" data-title="Factory Butte · Utah">
+                <img src="images/Sunrise/factory_butte_sunrise.jpg" alt="Factory Butte Sunrise, Utah" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Factory Butte</span><span class="grid-overlay-loc">Utah</span></div>
+            </div>
+
+            <!-- Aurora -->
+            <div class="grid-item" data-category="aurora" data-src="images/Le%20Dun/Cotton_Candy_Skies_Normal.jpg" data-title="Cotton Candy Skies · Quebec">
+                <img src="images/Le%20Dun/Cotton_Candy_Skies_Normal.jpg" alt="Cotton Candy Skies Aurora, Quebec" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Cotton Candy Skies</span><span class="grid-overlay-loc">Quebec, Canada</span></div>
+            </div>
+
+            <!-- Sunset -->
+            <div class="grid-item" data-category="sunset" data-src="images/Sunset/Alpine_Scenic_Backway.jpg" data-title="Alpine Scenic Backway">
+                <img src="images/Sunset/Alpine_Scenic_Backway.jpg" alt="Alpine Scenic Backway Sunset" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Alpine Scenic Backway</span><span class="grid-overlay-loc"></span></div>
+            </div>
+
+            <!-- Rock Formations -->
+            <div class="grid-item" data-category="rock-formations" data-src="images/Rock%20Formations/Monument_Valley.jpg" data-title="Monument Valley · Arizona/Utah">
+                <img src="images/Rock%20Formations/Monument_Valley.jpg" alt="Monument Valley" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Monument Valley</span><span class="grid-overlay-loc">Arizona / Utah</span></div>
+            </div>
+
+            <!-- Water -->
+            <div class="grid-item" data-category="water" data-src="images/Water/cape_flattery.jpg" data-title="Cape Flattery · Washington">
+                <img src="images/Water/cape_flattery.jpg" alt="Cape Flattery, Washington" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Cape Flattery</span><span class="grid-overlay-loc">Washington</span></div>
+            </div>
+
+            <!-- Aurora -->
+            <div class="grid-item" data-category="aurora" data-src="images/Le%20Dun/Northern_Lights_Swirl_Middle.jpg" data-title="Northern Swirl · Quebec">
+                <img src="images/Le%20Dun/Northern_Lights_Swirl_Middle.jpg" alt="Northern Lights Swirl, Quebec" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Northern Swirl</span><span class="grid-overlay-loc">Quebec, Canada</span></div>
+            </div>
+
+            <!-- Astro -->
+            <div class="grid-item" data-category="astro" data-src="images/Astro/Forest_gump_lookout.jpg" data-title="Forrest Gump Point · Utah">
+                <img src="images/Astro/Forest_gump_lookout.jpg" alt="Forrest Gump Point, Utah" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Forrest Gump Point</span><span class="grid-overlay-loc">Utah</span></div>
+            </div>
+
+            <!-- Cityscape -->
+            <div class="grid-item" data-category="cityscape" data-src="images/Cityscape/Erie_Marine_Basin%201.jpg" data-title="Erie Marine Basin · Erie, PA">
+                <img src="images/Cityscape/Erie_Marine_Basin%201.jpg" alt="Erie Marine Basin, Erie PA" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Erie Marine Basin</span><span class="grid-overlay-loc">Erie, PA</span></div>
+            </div>
+
+            <!-- People -->
+            <div class="grid-item" data-category="people" data-src="images/People/bentonite_hills_siloutte.jpg" data-title="Bentonite Hills · Utah">
+                <img src="images/People/bentonite_hills_siloutte.jpg" alt="Bentonite Hills Silhouette, Utah" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Bentonite Hills</span><span class="grid-overlay-loc">Utah</span></div>
+            </div>
+
+            <!-- Aurora -->
+            <div class="grid-item" data-category="aurora" data-src="images/Le%20Dun/Le_Dun_Stars_Red_Light.jpg" data-title="Red Aurora Dance · Quebec">
+                <img src="images/Le%20Dun/Le_Dun_Stars_Red_Light.jpg" alt="Red Aurora Dance, Quebec" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Red Aurora Dance</span><span class="grid-overlay-loc">Quebec, Canada</span></div>
+            </div>
+
+            <!-- Mountains -->
+            <div class="grid-item" data-category="mountains" data-src="images/Mountains/sunlit_top.jpg" data-title="Sunlit Summit">
+                <img src="images/Mountains/sunlit_top.jpg" alt="Sunlit Mountain Summit" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Sunlit Summit</span><span class="grid-overlay-loc"></span></div>
+            </div>
+
+            <!-- Water -->
+            <div class="grid-item" data-category="water" data-src="images/Water/Athabasca.jpg" data-title="Athabasca · Alberta, Canada">
+                <img src="images/Water/Athabasca.jpg" alt="Athabasca, Alberta" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Athabasca</span><span class="grid-overlay-loc">Alberta, Canada</span></div>
+            </div>
+
+            <!-- Forest -->
+            <div class="grid-item" data-category="forest" data-src="images/Forest/hoh.jpg" data-title="Hoh Rainforest · Olympic NP, WA">
+                <img src="images/Forest/hoh.jpg" alt="Hoh Rainforest, Olympic National Park" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Hoh Rainforest</span><span class="grid-overlay-loc">Olympic NP, WA</span></div>
+            </div>
+
+            <!-- Aurora -->
+            <div class="grid-item" data-category="aurora" data-src="images/Le%20Dun/Northern_Lights_Swirl_Right.jpg" data-title="Celestial Swirl · Quebec">
+                <img src="images/Le%20Dun/Northern_Lights_Swirl_Right.jpg" alt="Celestial Swirl, Quebec" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Celestial Swirl</span><span class="grid-overlay-loc">Quebec, Canada</span></div>
+            </div>
+
+            <!-- Cityscape -->
+            <div class="grid-item" data-category="cityscape" data-src="images/Cityscape/QC_hotel.jpg" data-title="Quebec City">
+                <img src="images/Cityscape/QC_hotel.jpg" alt="Quebec City" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Quebec City</span><span class="grid-overlay-loc">Quebec, Canada</span></div>
+            </div>
+
+            <!-- Sunset -->
+            <div class="grid-item" data-category="sunset" data-src="images/Sunset/La_Corniche_Landscape.jpg" data-title="La Corniche · Quebec">
+                <img src="images/Sunset/La_Corniche_Landscape.jpg" alt="La Corniche, Quebec" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">La Corniche</span><span class="grid-overlay-loc">Quebec, Canada</span></div>
+            </div>
+
+            <!-- People -->
+            <div class="grid-item" data-category="people" data-src="images/People/Jonston_canyon.jpg" data-title="Johnston Canyon · Alberta, Canada">
+                <img src="images/People/Jonston_canyon.jpg" alt="Johnston Canyon, Alberta" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Johnston Canyon</span><span class="grid-overlay-loc">Alberta, Canada</span></div>
+            </div>
+
+            <!-- Aurora -->
+            <div class="grid-item" data-category="aurora" data-src="images/Le%20Dun/Star_Burst.jpg" data-title="Star Burst · Quebec">
+                <img src="images/Le%20Dun/Star_Burst.jpg" alt="Star Burst Aurora, Quebec" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Star Burst</span><span class="grid-overlay-loc">Quebec, Canada</span></div>
+            </div>
+
+            <!-- Mountains -->
+            <div class="grid-item" data-category="mountains" data-src="images/Mountains/Moon_Landing.jpg" data-title="Moon Landing">
+                <img src="images/Mountains/Moon_Landing.jpg" alt="Moon Landing" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Moon Landing</span><span class="grid-overlay-loc"></span></div>
+            </div>
+
+            <!-- Water -->
+            <div class="grid-item" data-category="water" data-src="images/Water/Eperon_Trail.jpg" data-title="Éperon Trail · Quebec">
+                <img src="images/Water/Eperon_Trail.jpg" alt="Éperon Trail, Quebec" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Éperon Trail</span><span class="grid-overlay-loc">Quebec, Canada</span></div>
+            </div>
+
+            <!-- Astro -->
+            <div class="grid-item" data-category="astro" data-src="images/Astro/under_canvas_astro.jpg" data-title="Under Canvas · Astro">
+                <img src="images/Astro/under_canvas_astro.jpg" alt="Under Canvas Astrophotography" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Under Canvas</span><span class="grid-overlay-loc"></span></div>
+            </div>
+
+            <!-- Aurora -->
+            <div class="grid-item" data-category="aurora" data-src="images/Le%20Dun/Le_Dun_Stars_Light.jpg" data-title="Starlit Aurora · Quebec">
+                <img src="images/Le%20Dun/Le_Dun_Stars_Light.jpg" alt="Starlit Aurora, Quebec" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Starlit Aurora</span><span class="grid-overlay-loc">Quebec, Canada</span></div>
+            </div>
+
+            <!-- Wildlife -->
+            <div class="grid-item" data-category="wildlife" data-src="images/Animals/Bear.jpg" data-title="Bear">
+                <img src="images/Animals/Bear.jpg" alt="Bear" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Bear</span><span class="grid-overlay-loc"></span></div>
+            </div>
+
+            <!-- Sunrise -->
+            <div class="grid-item" data-category="sunrise" data-src="images/Sunrise/The_watchman.jpg" data-title="The Watchman · Zion NP">
+                <img src="images/Sunrise/The_watchman.jpg" alt="The Watchman, Zion National Park" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">The Watchman</span><span class="grid-overlay-loc">Zion NP, UT</span></div>
+            </div>
+
+            <!-- Cityscape -->
+            <div class="grid-item" data-category="cityscape" data-src="images/Cityscape/Erie_Marine_Basin_City_Hall_2.jpg" data-title="City Hall · Erie, PA">
+                <img src="images/Cityscape/Erie_Marine_Basin_City_Hall_2.jpg" alt="Erie City Hall" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">City Hall</span><span class="grid-overlay-loc">Erie, PA</span></div>
+            </div>
+
+            <!-- Water -->
+            <div class="grid-item" data-category="water" data-src="images/Water/beach.jpg" data-title="Beach">
+                <img src="images/Water/beach.jpg" alt="Beach" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Beach</span><span class="grid-overlay-loc"></span></div>
+            </div>
+
+            <!-- Rock Formations -->
+            <div class="grid-item" data-category="rock-formations" data-src="images/Rock%20Formations/Mars%20copy.png" data-title="Mars · Utah">
+                <img src="images/Rock%20Formations/Mars%20copy.png" alt="Mars, Utah" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Mars</span><span class="grid-overlay-loc">Utah</span></div>
+            </div>
+
+            <!-- Mountains -->
+            <div class="grid-item" data-category="mountains" data-src="images/Mountains/Moon_Landing%202.jpg" data-title="Moon Landing II">
+                <img src="images/Mountains/Moon_Landing%202.jpg" alt="Moon Landing II" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Moon Landing II</span><span class="grid-overlay-loc"></span></div>
+            </div>
+
+            <!-- Wildlife -->
+            <div class="grid-item" data-category="wildlife" data-src="images/Animals/elk.jpg" data-title="Elk">
+                <img src="images/Animals/elk.jpg" alt="Elk" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Elk</span><span class="grid-overlay-loc"></span></div>
+            </div>
+
+            <!-- Sunset -->
+            <div class="grid-item" data-category="sunset" data-src="images/Sunset/Schaefer_Canyon-2.jpg" data-title="Schaefer Canyon · Utah">
+                <img src="images/Sunset/Schaefer_Canyon-2.jpg" alt="Schaefer Canyon, Utah" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Schaefer Canyon</span><span class="grid-overlay-loc">Utah</span></div>
+            </div>
+
+            <!-- Astro -->
+            <div class="grid-item" data-category="astro" data-src="images/Astro/Under_Canvas.jpg" data-title="Under Canvas · Night Sky">
+                <img src="images/Astro/Under_Canvas.jpg" alt="Under Canvas Night Sky" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Under Canvas</span><span class="grid-overlay-loc">Night Sky</span></div>
+            </div>
+
+            <!-- Cityscape -->
+            <div class="grid-item" data-category="cityscape" data-src="images/Cityscape/DSC01959.webp" data-title="Cityscape">
+                <img src="images/Cityscape/DSC01959.webp" alt="Cityscape" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Cityscape</span><span class="grid-overlay-loc"></span></div>
+            </div>
+
+            <!-- People -->
+            <div class="grid-item" data-category="people" data-src="images/People/Hoh_forest.jpg" data-title="Hoh Rainforest · Olympic NP, WA">
+                <img src="images/People/Hoh_forest.jpg" alt="Hoh Rainforest" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Hoh Rainforest</span><span class="grid-overlay-loc">Olympic NP, WA</span></div>
+            </div>
+
+            <!-- Sunrise -->
+            <div class="grid-item" data-category="sunrise" data-src="images/Sunrise/DSC00736-Enhanced-NRtire%20tracks.jpg" data-title="Tire Tracks · Sunrise">
+                <img src="images/Sunrise/DSC00736-Enhanced-NRtire%20tracks.jpg" alt="Tire Tracks Sunrise" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Tire Tracks</span><span class="grid-overlay-loc"></span></div>
+            </div>
+
+            <!-- Cityscape -->
+            <div class="grid-item" data-category="cityscape" data-src="images/Cityscape/Erie_Marine-Basin_Fountain_Plaza_Law%20Buildings.jpg" data-title="Fountain Plaza · Erie, PA">
+                <img src="images/Cityscape/Erie_Marine-Basin_Fountain_Plaza_Law%20Buildings.jpg" alt="Fountain Plaza, Erie PA" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Fountain Plaza</span><span class="grid-overlay-loc">Erie, PA</span></div>
+            </div>
+
+            <!-- Water -->
+            <div class="grid-item" data-category="water" data-src="images/Water/DSC04215-2.jpg" data-title="Waterscape">
+                <img src="images/Water/DSC04215-2.jpg" alt="Waterscape" loading="lazy">
+                <div class="grid-overlay"><span class="grid-overlay-title">Waterscape</span><span class="grid-overlay-loc"></span></div>
+            </div>
+
         </div>
     </section>
 
@@ -1241,16 +1379,31 @@
         carouselEl.addEventListener('mouseleave', startAuto);
         startAuto();
 
+        // ─── Gallery Filter ───
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const allGridItems = Array.from(document.querySelectorAll('#gallery-grid .grid-item'));
+        let visibleItems = [...allGridItems];
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                allGridItems.forEach(item => {
+                    item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none';
+                });
+                visibleItems = allGridItems.filter(item => item.style.display !== 'none');
+            });
+        });
+
         // ─── Lightbox ───
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxCaption = document.getElementById('lightbox-caption');
-        const gridItems = Array.from(document.querySelectorAll('#aurora-grid .grid-item'));
         let lightboxIndex = 0;
 
-        function openLightbox(index) {
-            lightboxIndex = index;
-            const item = gridItems[index];
+        function openLightbox(item) {
+            lightboxIndex = visibleItems.indexOf(item);
             lightboxImg.src = item.dataset.src;
             lightboxImg.alt = item.dataset.title || '';
             lightboxCaption.textContent = item.dataset.title || '';
@@ -1264,11 +1417,15 @@
         }
 
         function moveLightbox(dir) {
-            openLightbox((lightboxIndex + dir + gridItems.length) % gridItems.length);
+            lightboxIndex = (lightboxIndex + dir + visibleItems.length) % visibleItems.length;
+            const item = visibleItems[lightboxIndex];
+            lightboxImg.src = item.dataset.src;
+            lightboxImg.alt = item.dataset.title || '';
+            lightboxCaption.textContent = item.dataset.title || '';
         }
 
-        gridItems.forEach((item, i) => {
-            item.addEventListener('click', () => openLightbox(i));
+        allGridItems.forEach(item => {
+            item.addEventListener('click', () => openLightbox(item));
         });
 
         document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
